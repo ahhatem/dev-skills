@@ -1,0 +1,9 @@
+{
+  "name": "dev-skills",
+  "description": "Personal Claude Code skills. review-branch: review a branch or pull request with the reason for each change beside the diff, in a local Plannotator page (Hunk as a terminal fallback), and read the reviewer's comments back.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ahmed Hatem"
+  },
+  "keywords": ["code-review", "git", "plannotator", "hunk"]
+}

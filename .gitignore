@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+# Review notes and feedback belong in a scratch directory, never here.
+*.feedback-*.json
+notes/
