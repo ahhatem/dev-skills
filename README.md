@@ -9,24 +9,23 @@ plugin marketplace, so a machine needs two commands to get everything.
 
 ## Install on a machine
 
-Needs `git` and `python3`. `review-branch` also needs one viewer:
-
-- [Plannotator](https://plannotator.ai), the web page and the default:
-  `curl -fsSL https://plannotator.ai/install.sh | bash -s -- --minimal`
-  (`--minimal` installs only the binary: no hooks and no files in other agents' folders);
-- or [Hunk](https://github.com/modem-dev/hunk), the terminal fallback:
-  `curl -fsSL https://hunk.dev/install.sh | sh`.
-
-Then add the plugin from a terminal (or run the same as `/plugin ...` inside Claude Code):
+Paste this into a terminal on macOS, Linux or WSL:
 
 ```sh
-claude plugin marketplace add ahhatem/dev-skills   # or its https:// URL, or a local clone's path
+for c in git python3 claude; do command -v $c >/dev/null || echo "Missing: $c (install it first)"; done
+command -v plannotator >/dev/null || curl -fsSL https://plannotator.ai/install.sh | bash -s -- --minimal
+claude plugin marketplace add ahhatem/dev-skills
 claude plugin install dev-skills@dev-skills
 ```
 
-For a private repository, git on that machine must be able to clone it.
+- [Plannotator](https://plannotator.ai) shows the review as a local web page. `--minimal` installs
+  only its binary: no hooks, and no files in other agents' folders.
+- [Hunk](https://github.com/modem-dev/hunk) is optional, for reviewing in the terminal instead:
+  `curl -fsSL https://hunk.dev/install.sh | sh`.
+- `marketplace add` also takes the repository's https:// URL or a local clone's path. For a
+  private repository, git on that machine must be able to clone it.
 
-Restart Claude Code. The skill is then `/dev-skills:review-branch`; asking "review this branch"
+Then restart Claude Code. The skill is then `/dev-skills:review-branch`; asking "review this branch"
 finds it too.
 
 Update later with `claude plugin marketplace update dev-skills` and then
