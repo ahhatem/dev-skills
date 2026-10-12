@@ -44,9 +44,11 @@ Helper: `python3 <this skill's directory>/scripts/review_branch.py` with `map`, 
 7. **Hand off.** Tell the user the range and size, the note count per source (all `commit <sha>`
    notes together as `commit`), and the `review` findings most important first. Then:
    - Plannotator: run `review_branch.py open <base> <head> <notes.json> --repo <worktree>`
-     with `run_in_background`. It opens the page in the user's browser; within seconds the task
-     output shows `Review page: <url>`, which you give the user in case no tab opened. Tell them to
-     comment on lines and press Submit when done, then end your turn: you are woken when it exits.
+     with your shell tool's background option (`run_in_background` in Claude Code, `background`
+     in OpenCode), never in the foreground. It opens the page in the user's browser; within
+     seconds the output shows `Review page: <url>`, which you give the user in case no tab opened.
+     Tell them to comment on lines and press Submit when done, then end your turn: you are woken
+     when it exits.
      An `error:` exit means the notes no longer match the range; go back to step 3.
    - Hunk: give `cd <worktree> && hunk diff <base>...<head> --agent-context <notes.json>`, and ask
      them to comment inline and say when done.

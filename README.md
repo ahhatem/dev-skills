@@ -31,6 +31,26 @@ finds it too.
 Update later with `claude plugin marketplace update dev-skills` and then
 `claude plugin update dev-skills@dev-skills`.
 
+### OpenCode
+
+OpenCode does not install Claude Code plugins, but it reads skill folders: its own
+`~/.config/opencode/skills/`, plus `~/.claude/skills/` and `~/.agents/skills/`. Clone the repo and
+link the skill there:
+
+```sh
+for c in git python3 opencode; do command -v $c >/dev/null || echo "Missing: $c (install it first)"; done
+command -v plannotator >/dev/null || curl -fsSL https://plannotator.ai/install.sh | bash -s -- --minimal
+git clone https://github.com/ahhatem/dev-skills ~/dev-skills
+mkdir -p ~/.config/opencode/skills && ln -s ~/dev-skills/skills/review-branch ~/.config/opencode/skills/review-branch
+```
+
+Update later with `git -C ~/dev-skills pull`. If `~/.claude/skills/review-branch` already exists
+on that machine (see "Work on the skills"), skip the link: OpenCode already sees the skill, and
+a second link would list it twice.
+
+The review page wakes the agent when you submit, which needs a shell tool that can run a command
+in the background and resume the agent when it exits: Claude Code and OpenCode 2 have one.
+
 ## Work on the skills
 
 An installed plugin is a copy, so edits made here reach it only after a push and an update. On
