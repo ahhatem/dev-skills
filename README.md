@@ -1,4 +1,4 @@
-# dev-skills
+# [dev-skills](https://github.com/ahhatem/dev-skills)
 
 Personal agent skills, packaged as one Claude Code plugin. The repository is also its own
 plugin marketplace, so a machine needs two commands to get everything.
@@ -20,7 +20,7 @@ Needs `git` and `python3`. `review-branch` also needs one viewer:
 Then add the plugin from a terminal (or run the same as `/plugin ...` inside Claude Code):
 
 ```sh
-claude plugin marketplace add <github-user>/dev-skills   # or its https:// URL, or a local clone's path
+claude plugin marketplace add ahhatem/dev-skills   # or its https:// URL, or a local clone's path
 claude plugin install dev-skills@dev-skills
 ```
 

@@ -5,5 +5,12 @@
   "author": {
     "name": "Ahmed Hatem"
   },
-  "keywords": ["code-review", "git", "plannotator", "hunk"]
+  "homepage": "https://github.com/ahhatem/dev-skills",
+  "repository": "https://github.com/ahhatem/dev-skills",
+  "keywords": [
+    "code-review",
+    "git",
+    "plannotator",
+    "hunk"
+  ]
 }
